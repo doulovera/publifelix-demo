@@ -1,0 +1,14 @@
+.home-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.home-footer a::before {
+    content: '>';
+    color: #000;
+    font-weight:900;
+}
+
+.services p {
+    text-align: justify;
+}
