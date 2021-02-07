@@ -13,6 +13,10 @@
     font-weight:900;
 }
 
+.welcome-a {
+    background-color: #D6D6D6;
+}
+
 .services p {
     text-align: justify;
 }
