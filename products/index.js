@@ -34,8 +34,8 @@ async function showProducts() {
     }
     
     productsToShow[0].forEach(el => {
-        products.innerHTML += `<div class="p-2">
-                                    <img class="img-thumbnail px-1" draggable="false" src="${el}" />
+        products.innerHTML += `<div class="p-lg-2">
+                                    <img class="img-thumbnail px-lg-1" draggable="false" src="${el}" />
                                 </div>`
     });
 }

@@ -52,10 +52,29 @@
         </ul>
 
         <div>
-            <div id="products" class="row row-cols-1 row-cols-lg-4 mx-auto">
+            <div id="products" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
                 <div id="textil" class="col order-last"></div>
             </div>
         </div>
+
+        <nav aria-label="Pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a href="javascript:prevPage()" aria-label="Antes" class="page-link" id="previous">
+                        <span aria-hidden="="true>&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a href="#" class="page-link" id="one">1</a></li>
+                <li class="page-item"><a href="#" class="page-link" id="two">2</a></li>
+                <li class="page-item"><a href="#" class="page-link" id="three">3</a></li>
+                <li class="page-item"><a href="#" class="page-link" id="four">4</a></li>
+                <li class="page-item">
+                    <a href="javascript:nextPage()" aria-label="Antes" class="page-link" id="next">
+                        <span aria-hidden="="true>&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
     </section>
 
