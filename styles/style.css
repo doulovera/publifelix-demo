@@ -20,3 +20,21 @@
 .contact .address p {
     font-size: 14px;
 }
+
+.page-item {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+    animation: show .5s ease;
+}
+
+.disabled {
+    color: gray;
+    pointer-events: none;
+}

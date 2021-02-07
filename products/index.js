@@ -1,46 +1,54 @@
-const products = document.getElementById('products');
+const products = document.getElementById('products').children;
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const pageNumber = document.getElementById('page-num');
 
-const productsToShow = [];
+const maxItem = 16;
+let index = 1;
 
-async function showProducts() {
+const pagination = Math.ceil(products.length/maxItem);
+console.log(pagination)
 
-    const data = await fetch('products.json');
-    const res = await data.json();
-    
-    if(products.children.textil) {
+prev.addEventListener("click", () => {
+    index--;
+    check();
+    showItems();
+});
 
-        productsToShow.push(res[0].textil[0])
+next.addEventListener("click", () => {
+    index++;
+    check();
+    showItems();
+});
 
-    } else if(products.children.llaveros) {
-
-        productsToShow.push(res[0].llaveros[0])
-        
-    } else if(products.children.plasticos) {
-        
-        productsToShow.push(res[0].plasticos[0])
-        
-    } else if(products.children.acrilico) {
-        
-        productsToShow.push(res[0].acrilico[0])
-        
-    } else if(products.children.importados) {
-        
-        productsToShow.push(res[0].importados[0])
-        
-    } else if(products.children.otros) {
-        
-        productsToShow.push(res[0].otros[0])
-        
+function check() {
+    if(index == pagination) {
+        next.classList.add("disabled");
+    } else {
+        next.classList.remove("disabled");
     }
-    
-    productsToShow[0].forEach(el => {
-        products.innerHTML += `<div class="p-lg-2">
-                                    <img class="img-thumbnail px-lg-1" draggable="false" src="${el}" />
-                                </div>`
-    });
+
+    if(index === 1) {
+        prev.classList.add("disabled");
+    } else {
+        prev.classList.remove("disabled");
+    }
 }
 
-// console.log(productsToShow)
+function showItems() {
+    for(let i=0;i<products.length;i++) {
+        products[i].classList.remove("show");
+        products[i].classList.add("hide");
 
+        if(i>=(index*maxItem)-maxItem && i<index*maxItem){
+            products[i].classList.remove("hide");
+            products[i].classList.add("show");
+        }
+        pageNumber.innerHTML = index;
+    }
+}
 
-window.onload = showProducts
+window.onload = function() {
+    showItems();
+    check();
+}
